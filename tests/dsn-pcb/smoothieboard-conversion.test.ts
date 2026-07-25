@@ -16,7 +16,9 @@ export function testSmoothieBoardConversion() {
   const circuitJson = convertDsnPcbToCircuitJson(dsnJson)
 
   const keepouts = circuitJson.filter((e: any) => e.type === "pcb_keepout")
-  const copperPours = circuitJson.filter((e: any) => e.type === "pcb_copper_pour")
+  const copperPours = circuitJson.filter(
+    (e: any) => e.type === "pcb_copper_pour",
+  )
 
   if (keepouts.length === 0 || copperPours.length === 0) {
     throw new Error("Smoothie Board keepout or copper pour conversion failed")
